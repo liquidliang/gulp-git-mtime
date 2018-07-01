@@ -1,10 +1,8 @@
 # gulp-git-mtime
 ===========
 
-[![npm Version][npm-badge]][npm]
-[![Build Status][travis-badge]][travis]
 
-> A create the markdown index plugin for gulp
+> Sync the mtime by git for gulp
 
 ## Usage
 
@@ -18,11 +16,11 @@ Then, add it to your `gulpfile.js`:
 
 ### Simple
 ```javascript
-var indexer = require('gulp-git-mtime');
+var mtimer = require('gulp-git-mtime');
 
-gulp.task('indexer', function(){
+gulp.task('mtimer', function(){
   return gulp.src('./public/**/*.md')
-    .pipe(indexer('./public/json/article.json'))
+    .pipe(mtimer())
     .pipe(gulp.dest('./'));
 });
 ```
