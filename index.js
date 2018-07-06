@@ -36,7 +36,9 @@ module.exports = function () {
       let logLine = result && result.latest;
       if (logLine) {
         let mtime = new Date(logLine.date).getTime();
-        fs.utimesSync(file.path, mtime / 1000, mtime / 1000);
+        if (mtime != (file.stat && file.stat.mtimeMs)){
+          fs.utimesSync(file.path, mtime / 1000, mtime / 1000);
+        }
       }
 
       callback(null, file);
